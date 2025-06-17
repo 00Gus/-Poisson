@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Defectos en Línea de Producción</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        Simulador de Defectos en Línea de Producción
+    </header>
+    <div class="container">
+        <form id="formulario">
+            <label for="lambda">Tasa promedio de defectos por día (λ):</label>
+            <input type="number" id="lambda" min="0" step="0.1" value="3" required>
+            <label for="dias">Días a simular:</label>
+            <input type="number" id="dias" min="1" max="100" value="7" required>
+            <button type="submit">Simular</button>
+        </form>
+        <div class="cinta-container">
+            <div class="cinta"></div>
+            <div id="cajas"></div>
+        </div>
+        <div class="resultados" id="resultados" style="display:none;">
+            <div class="estadisticas" id="estadisticas"></div>
+            <canvas class="grafico" id="grafico"></canvas>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Defectos</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-resultados"></tbody>
+            </table>
+        </div>
+        <div class="explicacion">
+            <strong>¿Qué es la distribución de Poisson?</strong><br>
+            Es una distribución de probabilidad que modela el número de veces que ocurre un evento en un intervalo de tiempo o espacio, cuando los eventos ocurren de manera independiente y a una tasa promedio constante.<br>
+            En este simulador, cada día representa un intervalo y los defectos son los eventos modelados.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
